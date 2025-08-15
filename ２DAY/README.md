@@ -19,4 +19,4 @@ sql데이터와 연동 할 수 있게 코드를 짜줌.
 <br/>
 비밀번호 다시 입력 후 데이터가 제대로 연동된것을 확인함
 <br>
-<img width="600" height="200" alt="Image" src="https://github.com/user-attachments/assets/f7d577d5-d326-417e-849b-0e2770827341" />
+<img width="600" height="400" alt="Image" src="https://github.com/user-attachments/assets/f7d577d5-d326-417e-849b-0e2770827341" />
