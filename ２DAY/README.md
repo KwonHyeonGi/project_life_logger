@@ -3,7 +3,7 @@
 
 <br>
 Flask를 통해서 웹과 연동시킴.
-<image></image>
+<image>https://github.com/KwonHyeonGi/project_life_logger/blob/main/%EF%BC%92DAY/flaskcon.png</image>
 
 <br>
 sql과 연동을 위해서 컨넥터 설치 해줌. [mysql-connector-python]
