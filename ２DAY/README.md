@@ -3,7 +3,7 @@
 
 <br>
 Flask를 통해서 웹과 연동시킴.
-![플라스크 실행 화면](https://github.com/KwonHyeonGi/project_life_logger/row/main/%EF%BC%92DAY/flaskcon.png)
+![플라스크 실행 화면](https://github.com/KwonHyeonGi/project_life_logger/raw/main/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA/flaskcon.png)
 
 
 <br>
