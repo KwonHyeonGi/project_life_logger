@@ -40,7 +40,7 @@
               sql = "INSERT INTO expense_records (log_id, category_id, amount, description) VALUES (%s, %s, %s, %s)"
               val = (log_id, category_id, amount, description)
               cursor.execute(sql, val)
-
+```
 
 
               오늘 수면기록을 저장해서 운동기록이 FLASE로 되어있을경우, 오늘 기록을 찾아서 [if result : ] did_workout 값만 TRUE로 바꾼다.
