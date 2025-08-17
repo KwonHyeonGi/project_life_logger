@@ -40,9 +40,9 @@
               sql = "INSERT INTO expense_records (log_id, category_id, amount, description) VALUES (%s, %s, %s, %s)"
               val = (log_id, category_id, amount, description)
               cursor.execute(sql, val)
-
+```
          
-      	
+```   	
       #  운동 기록 저장 함수 
       @app.route("/add_exercise", methods=['POST'])
       def add_exercise():
@@ -74,6 +74,7 @@
           except Exception as e:
               return f"운동 기록 저장 중 오류 발생: {e}"
           return redirect(url_for('index'))
+```
       
       # --- 4. 서버를 실행하는 부분 ---
       if __name__ == '__main__':
