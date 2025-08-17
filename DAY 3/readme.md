@@ -9,7 +9,7 @@
 
 
  2. app.py 파일의 index() 함수（APP.PYファイルのINDEX()）
-         ```
+    ```
        대부분이 cursor.execute 를 통해서 명령한다. fetchall()은 값이 있으면 가져오고, 없으면 아무것도 하지 말라는 뜻
        大体がCURSOR.EXECUTEを通して命令する。FETCHALL()は値があったら持って、なかったら何もしいていう意味）
           cursor.execute("SELECT exercise_id, exercise_name FROM exercises;")
