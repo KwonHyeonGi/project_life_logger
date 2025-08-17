@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Life Logger</title>
+    <style>
+        /* CSS 스타일: 모양을 예쁘게 꾸며주는 부분입니다. */
+        body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; background-color: #f9f9f9; }
+        h1, h2 { text-align: center; }
+        .form-section { background-color: white; border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .form-section h2 { margin-top: 0; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 98%; padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; }
+        button { width: 100%; padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        
+        .log-section { margin-top: 40px; }
+        .log-item { background-color: white; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .log-item h3 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .log-item ul { padding-left: 20px; list-style: none; }
+        .log-item li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>📝 Life Logger</h1>
+
+    <div class="form-section">
+        <h2>🌙 수면 시간 기록</h2>
+        <form action="/add_sleep" method="post">
+            <label for="date">날짜:</label>
+            <input type="date" id="date" name="log_date" required>
+            <label for="sleep_start">취침 시각:</label>
+            <input type="datetime-local" id="sleep_start" name="sleep_start_time" required>
+            <label for="sleep_end">기상 시각:</label>
+            <input type="datetime-local" id="sleep_end" name="sleep_end_time" required>
+            <button type="submit">수면 기록 저장</button>
+        </form>
+    </div>
+
+    <div class="form-section">
+        <h2>💸 지출 기록</h2>
+        <form action="/add_expense" method="post">
+            <label for="expense_date">날짜:</label>
+            <input type="date" id="expense_date" name="log_date" required>
+            <label for="category">분야:</label>
+            <input type="text" id="category" name="category_name" placeholder="예: 식비, 교통" required>
+            <label for="amount">금액:</label>
+            <input type="number" id="amount" name="amount" placeholder="예: 8000" required>
+            <label for="description">내용:</label>
+            <input type="text" id="description" name="description" placeholder="예: 점심 식사">
+            <button type="submit">지출 기록 저장</button>
+        </form>
+    </div>
+
+    <div class="form-section">
+        <h2>🏋️ 운동 기록</h2>
+        <form action="/add_exercise" method="post">
+            <label for="exercise_date">날짜:</label>
+            <input type="date" id="exercise_date" name="log_date" required>
+            <label for="exercise">운동 종류:</label>
+            <select id="exercise" name="exercise_id" required>
+                {% for exercise in exercises %}
+                    <option value="{{ exercise.exercise_id }}">{{ exercise.exercise_name }}</option>
+                {% endfor %}
+            </select>
+            <label for="sets">세트 수:</label>
+            <input type="number" id="sets" name="set_number" placeholder="예: 3" required>
+            <label for="weight">무게(kg):</label>
+            <input type="number" step="0.1" id="weight" name="weight" placeholder="예: 60.5" required>
+            <label for="reps">횟수:</label>
+            <input type="number" id="reps" name="reps" placeholder="예: 10" required>
+            <button type="submit">운동 기록 추가</button>
+        </form>
+    </div>
+    
+    <div class="log-section">
+        <h2>📊 나의 기록</h2>
+        {% for log in logs %}
+            <div class="log-item">
+                <h3>{{ log.log_date.strftime('%Y년 %m월 %d일') }}</h3>
+                <ul>
+                    <li>
+                        <strong>🌙 수면:</strong> 
+                        {% if log.sleep_start_time and log.sleep_end_time %}
+                            {{ log.sleep_start_time.strftime('%H:%M') }} ~ {{ log.sleep_end_time.strftime('%H:%M') }}
+                        {% else %}
+                            기록 없음
+                        {% endif %}
+                    </li>
+                    <li>
+                        <strong>🏋️ 운동:</strong> 
+                        {% if log.did_workout %}
+                            <ul>
+                            {% for ex in log.exercise_details %}
+                                <li>{{ ex.exercise_name }}: {{ ex.weight }}kg, {{ ex.reps }}회 ({{ ex.set_number }}세트)</li>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            ❌ 휴식
+                        {% endif %}
+                    </li>
+                    <li>
+                        <strong>💸 지출:</strong>
+                        {% if log.expense_details %}
+                            <ul>
+                            {% for exp in log.expense_details %}
+                                <li>{{ exp.category_name }}: {{ exp.amount }}원 ({{ exp.description }})</li>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            기록 없음
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
