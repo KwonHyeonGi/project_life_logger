@@ -11,8 +11,8 @@
  2. app.py 파일의 index() 함수
     <br><br>
     대부분이 cursor.execute 를 통해서 명령한다. fetchall()은 값이 있으면 가져오고, 없으면 아무것도 하지 말라는 뜻
-    <br>cursor.execute("SELECT exercise_id, exercise_name FROM exercises;")
-    <br>exercises = cursor.fetchall()
+    <br>      cursor.execute("SELECT exercise_id, exercise_name FROM exercises;")
+    <br>       exercises = cursor.fetchall()
     <br><br>
     result 값은 execute에서 명령한 log_date(오늘 날짜)로 등록된 log_id가 daily_logs에 있는지 확인한 값을 나타남. 있으면 대답 / 없으면 안가져옴.
     <br>
