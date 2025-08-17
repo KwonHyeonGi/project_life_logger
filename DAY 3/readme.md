@@ -1,12 +1,7 @@
 ## DAY3 
 ## 전체 완성 시키기
 
-1.
-   # 데이터 입력 화면(FORM) 만들기
-
-
-
-
+1. 데이터 입력 화면(FORM) 만들기
    <!DOCTYPE html>
       <html lang="ko">
       <head>
