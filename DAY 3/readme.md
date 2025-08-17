@@ -40,8 +40,6 @@
           (もう、存在するカテゴリーならRESULT[0]を、初めて入力したカテゴリーならEXPENCESE_CATEGORIESテーブルに新しく追加）
           cursor.execute("INSERT INTO expense_categories (category_name) VALUES (%s)", (category_name,))
           category_id = cursor.lastrowid
-           ```
-
 
          오늘 수면기록을 저장해서 운동기록이 FLASE로 되어있을경우, 오늘 기록을 찾아서 [if result : ] did_workout 값만 TRUE로 바꾼다.
          (本日睡眠記録を保存して運動記録がFLASEになってる場合、今日の記録を探して [if result: ] did_workout 値をTRUEに変わる。）
