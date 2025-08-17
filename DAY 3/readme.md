@@ -3,7 +3,9 @@
 
 1.
    # 데이터 입력 화면(FORM) 만들기
- 
+
+
+
 
    <!DOCTYPE html>
       <html lang="ko">
@@ -127,6 +129,7 @@
       
       </body>
       </html>
+
 
 3. app.py 수면시간 / 운동 / 지출을 입력 및 저장 되게 파이썬 코드 작성
       from flask import Flask, render_template, request, redirect, url_for
