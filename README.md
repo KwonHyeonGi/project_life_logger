@@ -12,6 +12,16 @@
 ## 설명
   매일 자신의 정보를 기록 하는 프로그램. 수면시간, 일일 지출비용, 운동 상세내용 을 저장하여, 확인가능
 
+## 데이터 구조 설명
+ daily_logs
+  |Colum Name|
+  |log_id|	INT	PK, AUTO_INCREMENT	기록 고유 ID
+  |log_date|	DATE	NOT NULL, UNIQUE	기록 날짜
+  |sleep_start_time|	DATETIME		취침 시작 시각
+  |sleep_end_time|	DATETIME		기상 시각
+  |did_workout|	BOOLEAN	NOT NULL, DEFAULT FALSE	운동 여부
+
+
 ### 구동 사진
 
 수면시간 입력
